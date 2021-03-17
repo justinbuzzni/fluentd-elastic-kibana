@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: httpd
+    image: nginx
     ports:
       - "80:80"
     links:
@@ -11,7 +11,9 @@ services:
       options:
         fluentd-address: localhost:24224
         tag: httpd.access
-
+    volumes:
+      - /Users/namsangboy/workspace/opensource/fluentd-elastic-kibana/nginx/conf:/usr/local/apache2/conf/
+      - /Users/namsangboy/workspace/opensource/fluentd-elastic-kibana/nginx/htdocs:/usr/share/nginx/html
   fluentd:
     build: ./fluentd
     volumes:
