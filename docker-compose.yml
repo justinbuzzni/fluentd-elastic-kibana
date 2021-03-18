@@ -12,8 +12,8 @@ services:
         fluentd-address: localhost:24224
         tag: httpd.access
     volumes:
-      - /Users/namsangboy/workspace/opensource/fluentd-elastic-kibana/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
-      - /Users/namsangboy/workspace/opensource/fluentd-elastic-kibana/nginx/htdocs:/usr/share/nginx/html
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/htdocs:/usr/share/nginx/html
     environment: 
       - 'LOG_FORMAT="$remote_addr $time_iso8601 $request_uri $request_length $request_time "$http_user_agent"'  
   fluentd:
